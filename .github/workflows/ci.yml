@@ -35,6 +35,10 @@ jobs:
         if: ${{ success() }}
         run: echo "Job success"
 
+      - name: checking status
+        if: ${{ failure() }}
+        run: echo "Jabo failed"
+
       
 
 
