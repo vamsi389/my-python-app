@@ -37,8 +37,28 @@ jobs:
 
       - name: checking status
         if: ${{ failure() }}
-        run: echo "Jabo failed"
+        run: echo "Job failed"
 
+build:
+
+  runs-on: ubuntu-latest
+  needs: test
+
+  steps:
+
+    - name: Building stage
+      run: echo $APP_NAME
+
+    - name: Hostname 
+      run: hostname
+
+    - name: Result
+      run: echo "Build completed successfully"
+  
+  
+
+
+  
       
 
 
