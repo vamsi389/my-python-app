@@ -1,1 +1,39 @@
+name: Python Application CI Pipeline
+
+on:
+  push:
+      branches:
+        - main,dev
+
+  workflow_dispatch:
+env:
+  APP_NAME = my-python-app
+  ENVIRONMENT = production
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checking out
+        uses: actions/checkout@v6
+
+      - name: Displaying information
+        run: |
+          hostname
+          cat /etc/os-release
+          python --version
+          ls -ltrh
+        
+      - name: Run application
+        run: python app.py
+
+      - name: Checking Status
+        if: {{ success }}
+        run: echo "Job success"
+
+      
+
 
