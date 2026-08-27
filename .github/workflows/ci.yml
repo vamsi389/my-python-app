@@ -58,8 +58,17 @@ jobs:
 
   deploy:
   
-  runs-on: ubuntu-latest
-  needs: build
+    runs-on: ubuntu-latest
+    needs: build
+
+    if: ${{ vars.github.ref == refs/heads/main }}
+    steps:
+
+      - name: Deploying app
+        run: echo "Deploying $APP_NAME to $ENVIRONMENT"
+
+      - name: Final result
+        run: echo "Deployment completed successfully"
   
   
   
