@@ -39,21 +39,21 @@ jobs:
         if: ${{ failure() }}
         run: echo "Job failed"
 
-build:
+  build:
 
-  runs-on: ubuntu-latest
-  needs: test
+    runs-on: ubuntu-latest
+    needs: test
 
-  steps:
+    steps:
 
-    - name: Building stage
-      run: echo $APP_NAME
+      - name: Building stage
+        run: echo $APP_NAME
 
-    - name: Hostname 
-      run: hostname
+      - name: Hostname 
+        run: hostname
 
-    - name: Result
-      run: echo "Build completed successfully"
+      - name: Result
+        run: echo "Build completed successfully"
   
   
 
