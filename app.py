@@ -1,6 +1,5 @@
 def add(a,b):
     sum=a+b
-    print(f"Addition result is {sum}")
-    return
+    return sum
 
 add(5,6)
