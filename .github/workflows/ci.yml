@@ -17,14 +17,22 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: 
+                - '3.12'
+                - '3.13'
+                - '3.14'
+
     steps:
       - name: checking out
         uses: actions/checkout@v6
 
       - name: setup python
         uses: actions/setup-python@v7
-        with:
-          python-version: '3.13'
+        with: 
+          python-version: ${{ matrix.python-version }}
+          
 
       - name: Install dependencies
         run: pip install pytest
