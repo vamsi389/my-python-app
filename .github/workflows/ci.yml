@@ -94,7 +94,7 @@ jobs:
         
       - name: Build docker image
         run: |
-          docker build -t vamsi:v1:${{ github.sha }} .
+          docker build -t vamsi:${{ github.sha }} .
           docker image ls
 
       - name: Result
