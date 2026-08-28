@@ -97,10 +97,19 @@ jobs:
           docker build -t vamsi:${{ github.sha }} .
           docker image ls
 
+      - name: checking tokens
+        run: | 
+          echo "USERNAME=${{ vars.DOCKERHUB_USERNAME }}"
+          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
+            echo "TOKEN IS EMPTY"
+          else
+            echo "TOKEN EXISTS"
+          fi
+
       - name: Login Docker hub
         uses: docker/login-action@v4
         with:
-          username: ${{  vars.DOCKERHUB_USERNAME }}
+          username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image
