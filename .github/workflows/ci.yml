@@ -103,6 +103,9 @@ jobs:
           username: ${{  vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Push Docker Image
+        run: docker push vamsi:${{ github.sha }}
+
       - name: Result
         run: echo "Build completed successfully"
 
