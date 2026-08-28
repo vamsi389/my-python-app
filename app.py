@@ -1,4 +1,5 @@
-from app import add
+def add(a,b):
+    sum=a+b
+    print(f"Addition result is {sum}")
 
-def test_add():
-    assert add(2, 3) == 5
+add(5,6)
