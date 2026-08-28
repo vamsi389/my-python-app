@@ -88,6 +88,9 @@ jobs:
       - name: Show generated version
         run: echo "Build version is ${{ steps.version.outputs.build_version }}"
 
+      - name: Build docker image
+        run: docker build -t githubvamsi:v1 .
+
       - name: Result
         run: echo "Build completed successfully"
 
