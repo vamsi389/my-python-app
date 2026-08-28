@@ -21,6 +21,11 @@ jobs:
       - name: checking out
         uses: actions/checkout@v6
 
+      - name: setup python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+        
       - name: Displaying information
         run: |
           hostname
