@@ -35,6 +35,9 @@ jobs:
           cat /etc/os-release
           python --version
           ls -ltrh
+
+      - name: Run tests
+        run: pytest
         
       - name: Run application
         run: python app.py
