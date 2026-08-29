@@ -74,7 +74,7 @@ jobs:
   aws-test:
 
     runs-on: ubuntu-latest
-
+    
     steps:
 
       - name: Configure AWS credentials
