@@ -114,11 +114,12 @@ jobs:
             .
 
       - name: Push image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: my-python-app
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
-          docker push \
-            -t ${{ steps.login-ecr.outputs.registry }}/my-python-app:$SHORT_SHA \
-            .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$SHORT_SHA
 
       - name: Verify AWS identity
         run: aws sts get-caller-identity
