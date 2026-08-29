@@ -76,7 +76,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-
+      
+      - name: Checkout code
+        uses: actions/checkout@v6
 
       - name: Show OIDC claims
         env:
@@ -109,12 +111,13 @@ jobs:
           SHORT_SHA="${GITHUB_SHA::7}"
           docker build \
             -t ${{ steps.login-ecr.outputs.registry }}/my-python-app:$SHORT_SHA \
+            .
 
       - name: Push image to ECR
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
           docker push \
-            ${{ steps.login-ecr.outputs.registry }}/my-python-app:$SHORT_SHA
+            ${{ steps.login-ecr.outputs.registry }}/my-python-app:$SHORT_SHA \
             .
 
       - name: Verify AWS identity
