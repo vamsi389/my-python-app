@@ -44,8 +44,8 @@ jobs:
 
       - name: Build, tag, and push image to Amazon ECR
         run: |
-          docker build -t 704048935634.dkr.ecr.ap-southeast-1.amazonaws.com/my-python-app/my-python-app:$(git rev-parse HEAD) .
-          docker push 704048935634.dkr.ecr.ap-southeast-1.amazonaws.com/my-python-app/my-python-app:$(git rev-parse HEAD)
+          docker build -t 704048935634.dkr.ecr.ap-southeast-1.amazonaws.com/my-python-app:$(git rev-parse HEAD) .
+          docker push 704048935634.dkr.ecr.ap-southeast-1.amazonaws.com/my-python-app:$(git rev-parse HEAD)
         
           
 
