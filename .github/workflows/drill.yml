@@ -25,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Git code
+        uses: actions/checkout@v7
+            
       - name: Building docker image
         run: docker build -t my-image:$(git rev-parse --short HEAD) .
 
