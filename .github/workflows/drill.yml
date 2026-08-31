@@ -8,12 +8,27 @@ on:
 
 jobs:
 
-  test:
+  setup:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Git code
         uses: actions/checkout@v7
 
-      - name: listing files
-        run: ls -ltrh
+      - name: Setup python
+        uses: actions/setup-python@v7
+
+      - name: Install Pytest
+        run: pip install pytest
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Building docker image
+        run: docker build -t my-image:$(git rev-parse --short HEAD) .
+
+      - name: Listing Images
+        run: docker image ls
+
+      
