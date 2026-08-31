@@ -34,4 +34,11 @@ jobs:
       - name: Listing Images
         run: docker image ls
 
+      - name: Configuring AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6.2.3
+        with:
+          aws-region: ap-southeast-1
+
+
+
       
